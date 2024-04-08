@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+    <head>
+    <meta name="viewport" content="width=divice-width", initial-scale="1.0">
+    <title> count-down </title>
+    <link href="style.css" rel="stylesheet" type="text/css">   
+    </head>
+    <body>
+       <section>
+  
+<div class="launch-time">
+    <table>
+        <tr><td>
+    <div class="intro" style display="block">
+        <p > The next exit exam is in</p>
+        </div>
+    
+    </tr></td>
+    <tr><td>
+    <div class="countDays">
+       
+    <div ><p id="days">00</p>
+        <span> Days</span>
+    </div>
+
+    <div ><p id="hours">00</p>
+        <span> Hours</span>
+    </div>
+
+    <div ><p id="minutes">00</p>
+        <span> Minutes</span>
+    </div>
+    <div ><p id="seconds">00</p>
+        <span> Seconds</span>
+    </div>
+    </div>
+    </td></tr>
+</table>
+</div>
+</section>
+
+
+<script type="text/javascript">
+    const countDate = new Date("jun 3, 2024 00:00:00").getTime();
+    
+    function newYear(){
+        const now = new Date().getTime();
+        gap = countDate - now ;
+        const seconds = 1000;
+        const minutes = seconds*60;
+        const hours = minutes*60;
+        const days = hours*24;
+
+        const d = Math.floor(gap/(days));
+        const h = Math.floor((gap % (days))/(hours));
+        const m = Math.floor((gap % (hours))/(minutes));
+        const s = Math.floor((gap % (minutes))/(seconds));
+
+
+        
+        document.getElementById("days").innerHTML = d;
+        document.getElementById("hours").innerHTML = h;
+        document.getElementById("minutes").innerHTML = m;
+        document.getElementById("seconds").innerHTML = s;
+
+
+
+    }
+
+setInterval(function(){
+    newYear();
+},1000)
+
+
+</script>     
+    </body>
+</html>
